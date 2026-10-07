@@ -12,7 +12,7 @@ def get_data():
     return x_test, t_test
 
 
-def init_network():
+def init_network(): # 이미 학습된 가중치 매개변수를 읽음
     with open(os.path.dirname(__file__) + "/sample_weight.pkl", 'rb') as f:
         network = pickle.load(f)
     return network
@@ -38,10 +38,10 @@ network = init_network()
 batch_size = 100 # 배치 크기
 accuracy_cnt = 0
 
-for i in range(0, len(x), batch_size):
+for i in range(0, len(x), batch_size): # 데이터를 배치 단위로 분류해 처리
     x_batch = x[i:i+batch_size]
     y_batch = predict(network, x_batch)
     p = np.argmax(y_batch, axis=1)
-    accuracy_cnt += np.sum(p == t[i:i+batch_size])
+    accuracy_cnt += np.sum(p == t[i:i+batch_size]) # true인 데이터의 수를 더함
 
 print("Accuracy:" + str(float(accuracy_cnt) / len(x)))

@@ -9,9 +9,10 @@ from PIL import Image
 
 def img_show(img):
     pil_img = Image.fromarray(np.uint8(img))
-    pil_img.show()
+    # pil_img.show()
+    pil_img.save("ch03/img/mnist_sample.png") # 이미지 파일로 저장
 
-(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False) # 이미지가 1차원이 됨
 
 img = x_train[0]
 label = t_train[0]
