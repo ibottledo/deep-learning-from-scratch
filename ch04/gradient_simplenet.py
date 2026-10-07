@@ -9,7 +9,7 @@ from common.gradient import numerical_gradient
 
 class simpleNet:
     def __init__(self):
-        self.W = np.random.randn(2,3) # 정규분포로 초기화
+        self.W = np.random.randn(2,3) # 초기 매개변수를 정규분포로 초기화
 
     def predict(self, x):
         return np.dot(x, self.W)
@@ -26,7 +26,9 @@ t = np.array([0, 0, 1])
 
 net = simpleNet()
 
-f = lambda w: net.loss(x, t)
+print(net.W)
+
+f = lambda w: net.loss(x, t) # 손실 함수를 나타내는 람다 함수
 dW = numerical_gradient(f, net.W)
 
 print(dW)

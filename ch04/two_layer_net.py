@@ -46,14 +46,14 @@ class TwoLayerNet:
         loss_W = lambda W: self.loss(x, t)
         
         grads = {}
-        grads['W1'] = numerical_gradient(loss_W, self.params['W1'])
+        grads['W1'] = numerical_gradient(loss_W, self.params['W1']) # common.gradient.py의 numerical_gradient()를 호출
         grads['b1'] = numerical_gradient(loss_W, self.params['b1'])
         grads['W2'] = numerical_gradient(loss_W, self.params['W2'])
         grads['b2'] = numerical_gradient(loss_W, self.params['b2'])
         
         return grads
         
-    def gradient(self, x, t):
+    def gradient(self, x, t): # numerical_gradient()와 같은 기능을 수행하지만, 훨씬 빠르게 계산(ch05)
         W1, W2 = self.params['W1'], self.params['W2']
         b1, b2 = self.params['b1'], self.params['b2']
         grads = {}

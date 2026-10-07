@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pylab as plt
 
 
-def numerical_diff(f, x):
+def numerical_diff(f, x): # 중앙 차분을 이용한 수치 미분
     h = 1e-4 # 0.0001
     return (f(x+h) - f(x-h)) / (2*h)
 

@@ -1,4 +1,6 @@
 # coding: utf-8
+# 에포크마다 정확도를 계산하고 기록
+
 # 부모 디렉터리의 파일을 가져올 수 있도록 설정
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -61,4 +63,5 @@ plt.ylabel("accuracy")
 plt.ylim(0, 1.0)
 plt.xlim(0, 16)
 plt.legend(loc='lower right')
+plt.savefig("ch04/img/train_acc.png") # 점선과 실선이 일치하므로 과대적합X
 plt.show()
